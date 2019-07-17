@@ -6,25 +6,20 @@ public class Interactable_Vibration : MonoBehaviour
 {
     public byte Hardness = 2;
     public ushort duration = 500;
-    public bool IsVibrate;
     public bool VibrateOnlyOnGrab;
     public bool FixedVibration = true;
-    [HideInInspector]
-    public bool Vibrated;
-    [HideInInspector]
-    public GameObject InteractableObject;
-    [HideInInspector]
-    public Interactable Interactable;
-    [HideInInspector]
-    public Gestures Gesture;
-    [HideInInspector]
-    public GameObject[] Hands;
+
+    bool Vibrated;
+    GameObject InteractableObject;
+    InteractableJoint InteractableJoint;
+    Gestures Gesture;
+    GameObject[] Hands;
 
     public void Start()
     {
         byte[] Hardness = new byte[1];
         InteractableObject = this.gameObject;
-        Interactable = InteractableObject.GetComponent<Interactable>();
+        InteractableJoint = InteractableObject.GetComponent<InteractableJoint>();
 
         if (Gesture == null)
         {
@@ -38,11 +33,11 @@ public class Interactable_Vibration : MonoBehaviour
 
     public void Vibrate(ushort duration, byte Hardness)
     {
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Thumb, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Index, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Third, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Middle, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Little, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Thumb, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Index, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Third, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Middle, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Little, duration, Hardness);
     }
 
     void Update()
@@ -50,18 +45,18 @@ public class Interactable_Vibration : MonoBehaviour
         if (FixedVibration == false)
             Hardness = Gesture.hard;
 
-        if (Interactable.Grabbed && VibrateOnlyOnGrab && IsVibrate && Vibrated == false)
+        if (InteractableJoint.Grabbed && VibrateOnlyOnGrab && !Vibrated)
         {
             Vibrate(duration, Hardness);
             Vibrated = true;
         }
 
-        else if (Interactable.Grabbed && IsVibrate && VibrateOnlyOnGrab == false)
+        else if (InteractableJoint.Grabbed && !VibrateOnlyOnGrab)
         {
             Vibrate(duration, Hardness);
         }
 
-        else if(Interactable.Grabbed == false)
+        else if(!InteractableJoint.Grabbed)
         {
             Vibrated = false;
         }
