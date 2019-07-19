@@ -12,23 +12,11 @@ public class Interactable_Vibration : MonoBehaviour
     bool Vibrated;
     GameObject InteractableObject;
     InteractableJoint InteractableJoint;
-    Gestures Gesture;
-    GameObject[] Hands;
 
     public void Start()
     {
-        byte[] Hardness = new byte[1];
         InteractableObject = this.gameObject;
         InteractableJoint = InteractableObject.GetComponent<InteractableJoint>();
-
-        if (Gesture == null)
-        {
-            Hands = GameObject.FindGameObjectsWithTag("Hand Container");
-            for (int i = 0; i < 2; i++)
-            {
-                Gesture = Hands[i].GetComponent<Gestures>();
-            }
-        }
     }
 
     public void Vibrate(ushort duration, byte Hardness)
@@ -42,23 +30,26 @@ public class Interactable_Vibration : MonoBehaviour
 
     void Update()
     {
-        if (FixedVibration == false)
-            Hardness = Gesture.hard;
-
-        if (InteractableJoint.Grabbed && VibrateOnlyOnGrab && !Vibrated)
+        if (InteractableJoint.gesture != null)
         {
-            Vibrate(duration, Hardness);
-            Vibrated = true;
-        }
+            if (FixedVibration == false)
+                Hardness = InteractableJoint.gesture.hard;
 
-        else if (InteractableJoint.Grabbed && !VibrateOnlyOnGrab)
-        {
-            Vibrate(duration, Hardness);
-        }
+            if (InteractableJoint.Grabbed && VibrateOnlyOnGrab && !Vibrated)
+            {
+                Vibrate(duration, Hardness);
+                Vibrated = true;
+            }
 
-        else if(!InteractableJoint.Grabbed)
-        {
-            Vibrated = false;
+            else if (InteractableJoint.Grabbed && !VibrateOnlyOnGrab)
+            {
+                Vibrate(duration, Hardness);
+            }
+
+            else if (!InteractableJoint.Grabbed)
+            {
+                Vibrated = false;
+            }
         }
              
     }

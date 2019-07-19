@@ -54,11 +54,9 @@ public class SensoHandExample : Senso.Hand {
 
     public override void SetSensoPose (Senso.HandData aData)
 	{
-        /*var wristRotation = Wrist.localRotation;
-        wristRotation.y = aData.WristRotation.y;
-        Wrist.localRotation = wristRotation;*/
+        //Wrist.localRotation = aData.WristRotation;
         Palm.localRotation = /*(Quaternion.Inverse(wq) */ aData.PalmRotation;
-        Palm.localPosition = aData.PalmPosition;
+        //Palm.localPosition = aData.PalmPosition;
         
 
 		//Fingers

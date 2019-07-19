@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class InteractableJoint : MonoBehaviour
 {
-    GameObject InteractableObject;
-    Gestures gesture;
+    GameObject InteractableObject;    
     FixedJoint joint;
-    Interactable_Vibration vibration;
+    Rigidbody rb;
     [HideInInspector] public bool Grabbed;
     [HideInInspector] public bool Pinched;
+    [HideInInspector] public Gestures gesture;
     [HideInInspector] public SensoHandExample SensoHandExample;
+
     [Header("Type of Interaction")]
     public bool Grab;
     public bool Pinch;
@@ -20,10 +21,6 @@ public class InteractableJoint : MonoBehaviour
     public void Start()
     {
         InteractableObject = this.gameObject;
-
-        if (vibration == null)
-            vibration = InteractableObject.GetComponent<Interactable_Vibration>();
-
     }
 
 
@@ -36,45 +33,61 @@ public class InteractableJoint : MonoBehaviour
             if (((SensoHandExample.HandType == Senso.EPositionType.RightHand) || (SensoHandExample.HandType == Senso.EPositionType.LeftHand)) && gesture.grab && Grab)
             {
                 if (Grabbed == false)
-                {                             
-                    Rigidbody rb = col.gameObject.AddComponent<Rigidbody>();
-                    rb.isKinematic = true;
-                    rb.useGravity = false;
+                {
+                    if (col.gameObject.TryGetComponent(out rb))
+                    {
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                    }
+
+                    else
+                    {
+                        rb = col.gameObject.AddComponent<Rigidbody>();
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                    }
                     CreateJoint(col.gameObject);
                     Grabbed = true;
                 }
             }
 
-            if (col.gameObject.tag == "InteractableFinger" && gesture.pinch && Pinch)
+            else if (col.gameObject.tag == "InteractableFinger" && gesture.pinch && Pinch)
             {
                 if (Pinched == false)
                 {
-                    Rigidbody rb = col.gameObject.AddComponent<Rigidbody>();
+                    rb = col.gameObject.AddComponent<Rigidbody>();
                     rb.isKinematic = true;
                     rb.useGravity = false;
                     CreateJoint(col.gameObject);
                     Pinched = true;
                 }
             }
+
+            
         }
 
         else if(gesture != null && ((!gesture.grab && Grabbed) || (!gesture.pinch && Pinched)))
-        {
-            Destroy(joint);
-            Grabbed = false;
-            Pinched = false;
-            Destroy(col.rigidbody);
-        }
+            {
+                Clear(col.gameObject);
+            }
     }
 
     void CreateJoint(GameObject col)
     {
-        if (!InteractableObject.TryGetComponent<FixedJoint>(out joint))
+        if (!InteractableObject.TryGetComponent(out joint))
         {
             joint = InteractableObject.AddComponent<FixedJoint>();
             joint.connectedBody = col.GetComponent<Rigidbody>();
         }
 
+    }
+
+    void Clear(GameObject col)
+    {
+        Destroy(joint);
+        Grabbed = false;
+        Pinched = false;
+        rb = null;
     }
 
 
