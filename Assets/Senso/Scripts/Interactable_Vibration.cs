@@ -42,16 +42,11 @@ public class Interactable_Vibration : MonoBehaviour
             }
 
             else if (InteractableJoint.Grabbed && !VibrateOnlyOnGrab)
-            {
                 Vibrate(duration, Hardness);
-            }
 
             else if (!InteractableJoint.Grabbed)
-            {
                 Vibrated = false;
-            }
-        }
-             
+        }             
     }
 
 }

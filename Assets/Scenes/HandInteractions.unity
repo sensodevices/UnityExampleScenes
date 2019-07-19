@@ -593,18 +593,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1570607570}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &784853587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784853586}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ab206d0bb932246a6915250ce8730c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &784853588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,13 +600,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784853586}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d502b5df3fc4db4ca92c3aee0eeba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Hardness: 0
-  duration: 100
+  duration: 200
   VibrateOnlyOnGrab: 0
   FixedVibration: 0
 --- !u!137 &784853594 stripped
@@ -645,9 +633,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd25acacb463504aa4ed1f84e9ec118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gesture: {fileID: 0}
   Grabbed: 0
   Pinched: 0
+  gesture: {fileID: 0}
   SensoHandExample: {fileID: 0}
   Grab: 1
   Pinch: 0
@@ -971,7 +959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443741185}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.387, y: 0.6935994, z: -0.827}
+  m_LocalPosition: {x: -1.706, y: 0.6935994, z: -0.759}
   m_LocalScale: {x: 0.071719125, y: 0.10213733, z: 0.2159304}
   m_Children: []
   m_Father: {fileID: 293596785}
@@ -1034,9 +1022,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd25acacb463504aa4ed1f84e9ec118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gesture: {fileID: 0}
   Grabbed: 0
   Pinched: 0
+  gesture: {fileID: 0}
   SensoHandExample: {fileID: 0}
   Grab: 1
   Pinch: 0
@@ -1198,7 +1186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013227978282, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 137000012815384550, guid: 4d7627d70abb4e247b7d958e6634b2f1,
         type: 3}
@@ -1237,15 +1225,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 83d971dc1e971294db95113fe0ecbdd4, type: 2}
     - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1861404
+      value: -1.292
       objectReference: {fileID: 0}
     - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6718994
+      value: 0.672
       objectReference: {fileID: 0}
     - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.79524183
+      value: -0.84
       objectReference: {fileID: 0}
     - target: {fileID: 4000014277660454, guid: 4d7627d70abb4e247b7d958e6634b2f1, type: 3}
       propertyPath: m_LocalRotation.x
