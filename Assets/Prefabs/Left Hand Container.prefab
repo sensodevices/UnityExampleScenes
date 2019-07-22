@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandType: 2
-  Palm: {fileID: 4929131456612802}
+  Palm: {fileID: 6821236785628186129}
   Wrist: {fileID: 0}
   thumbBones:
   - {fileID: 4299142009223502}
@@ -918,8 +918,6 @@ MonoBehaviour:
     temperature: 0
   hard: 0
   SphereCollider: {fileID: 3058681496458794751}
-  hardness: 0
-  hardnesschar: 0
   grab: 0
   pinch: 0
   Vgesture: 0
@@ -1134,8 +1132,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3058681496458794751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0328, z: 0.1014}
-  m_LocalScale: {x: 0.078432664, y: 0.078432664, z: 0.078432664}
+  m_LocalPosition: {x: 0, y: -0.0213, z: 0.1057}
+  m_LocalScale: {x: 0.059510767, y: 0.059510767, z: 0.059510767}
   m_Children: []
   m_Father: {fileID: 2488325908026602351}
   m_RootOrder: 3
@@ -1315,7 +1313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5406744665307284212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1014}
+  m_LocalPosition: {x: -0.0047, y: -0.02, z: -0.114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2488325908026602351}
@@ -1346,7 +1344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6673768418965406519}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0047, y: 0.02, z: 0.012599997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4521027156842754}

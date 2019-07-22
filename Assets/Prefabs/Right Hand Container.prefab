@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandType: 1
-  Palm: {fileID: 0}
-  Wrist: {fileID: 2225173839912705439}
+  Palm: {fileID: 8630118948780745509}
+  Wrist: {fileID: 0}
   thumbBones:
   - {fileID: 4907807357951380}
   - {fileID: 4572232100180996}
@@ -437,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400165385524900}
   m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: 0.50000006, w: -0.49999997}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1057}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100.000015, y: 99.999985, z: 99.99998}
   m_Children: []
   m_Father: {fileID: 8630118948780745509}
@@ -560,7 +560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465752643523378}
   m_LocalRotation: {x: 0.03944871, y: 0.70246565, z: 0.7095017, w: 0.039915286}
-  m_LocalPosition: {x: 0.0035716584, y: -0.008438373, z: -0.24876034}
+  m_LocalPosition: {x: 0.0035716584, y: -0.008438373, z: -0.35446036}
   m_LocalScale: {x: 99.99997, y: 100, z: 99.99997}
   m_Children:
   - {fileID: 4256683440289484}
@@ -654,7 +654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537269434702182}
   m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: 0.50000006, w: -0.49999997}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1057}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100.000015, y: 99.999985, z: 99.99998}
   m_Children: []
   m_Father: {fileID: 8630118948780745509}
@@ -1101,7 +1101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974305279721908378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.028800003}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0.114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4959527924756038}
@@ -1135,7 +1135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3985566813484568111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0769}
+  m_LocalPosition: {x: 0, y: -0.02, z: -0.114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8630118948780745509}
@@ -1169,8 +1169,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4619077755996458765}
   m_LocalRotation: {x: 0.010889838, y: -0.0065432535, z: 0.065529086, w: 0.9977698}
-  m_LocalPosition: {x: -0.0000060001, y: -0.000185, z: -0.000079}
-  m_LocalScale: {x: 0.0002921147, y: 0.00029211462, z: 0.00029211474}
+  m_LocalPosition: {x: -0.000012, y: -0.000144, z: -0.00004}
+  m_LocalScale: {x: 0.00022932388, y: 0.0002293238, z: 0.00022932391}
   m_Children: []
   m_Father: {fileID: 4447948198265666}
   m_RootOrder: 0
@@ -1353,8 +1353,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6269431057501128435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000000010965, y: 0.000000010845, z: 0.0000000076626}
-  m_LocalScale: {x: 0.00027763072, y: 0.00027763072, z: 0.00027763072}
+  m_LocalPosition: {x: -0.000013, y: -0.000105, z: 0}
+  m_LocalScale: {x: 0.00022488089, y: 0.00022488089, z: 0.00022488089}
   m_Children: []
   m_Father: {fileID: 4726271608563090}
   m_RootOrder: 0
@@ -1538,7 +1538,7 @@ Transform:
   m_GameObject: {fileID: 8364903065245875688}
   m_LocalRotation: {x: 0.09281378, y: 0.0026259997, z: 0.02999849, w: 0.99522805}
   m_LocalPosition: {x: 0.000008, y: -0.000136, z: -0.000093}
-  m_LocalScale: {x: 0.00020137537, y: 0.0002013753, z: 0.00020137544}
+  m_LocalScale: {x: 0.0002293239, y: 0.0002293239, z: 0.0002293239}
   m_Children: []
   m_Father: {fileID: 4104996212903348}
   m_RootOrder: 0
@@ -1629,8 +1629,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8452940660297075461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0328, z: 0.1057}
-  m_LocalScale: {x: 0.078432664, y: 0.078432664, z: 0.078432664}
+  m_LocalPosition: {x: 0, y: -0.0213, z: 0}
+  m_LocalScale: {x: 0.059510767, y: 0.059510767, z: 0.059510767}
   m_Children: []
   m_Father: {fileID: 8630118948780745509}
   m_RootOrder: 3

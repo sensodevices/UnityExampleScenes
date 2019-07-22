@@ -55,9 +55,18 @@ public class InteractableJoint : MonoBehaviour
             {
                 if (Pinched == false)
                 {
-                    rb = col.gameObject.AddComponent<Rigidbody>();
-                    rb.isKinematic = true;
-                    rb.useGravity = false;
+                    if (col.gameObject.TryGetComponent(out rb))
+                    {
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                    }
+
+                    else
+                    {
+                        rb = col.gameObject.AddComponent<Rigidbody>();
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                    }
                     CreateJoint(col.gameObject);
                     Pinched = true;
                 }
@@ -78,6 +87,7 @@ public class InteractableJoint : MonoBehaviour
         {
             joint = InteractableObject.AddComponent<FixedJoint>();
             joint.connectedBody = col.GetComponent<Rigidbody>();
+            joint.transform.position = col.transform.position;
         }
 
     }
