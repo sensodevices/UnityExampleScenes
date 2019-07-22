@@ -66,7 +66,8 @@
      <Compile Include="Assets\Senso\Scripts\Body.cs" />
      <Compile Include="Assets\Senso\Scripts\Gestures.cs" />
      <Compile Include="Assets\Senso\Scripts\Hand.cs" />
-     <Compile Include="Assets\Senso\Scripts\Interactable.cs" />
+     <Compile Include="Assets\Senso\Scripts\Interactable(Old).cs" />
+     <Compile Include="Assets\Senso\Scripts\InteractableJoint.cs" />
      <Compile Include="Assets\Senso\Scripts\Interactable_Vibration.cs" />
      <Compile Include="Assets\Senso\Scripts\SensoBaseController.cs" />
      <Compile Include="Assets\Senso\Scripts\SensoBodyController.cs" />

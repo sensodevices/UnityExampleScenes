@@ -9,22 +9,26 @@ public class Gestures : MonoBehaviour
     public Senso.HandData HandData;
     public byte hard;
     public GameObject SphereCollider;
-    [SerializeField] private float hardness;
-    [SerializeField] private float hardnesschar;
+    float hardness;
+    float hardnesschar;
+    Rigidbody rb;
     [Header("Gesture")]
     public bool grab;
     public bool pinch;
     public bool Vgesture;
 
-
-
+    void Start()
+    {
+        SphereCollider.SetActive(false);
+        if(SensoHandExample == null)
+            SensoHandExample = this.gameObject.GetComponent<SensoHandExample>();        
+    }
 
     void Update()
     {
         GrabGesture();
         PinchGesture();
         VGesture();
-        //Debug.Log("Index x: " + Hand.indexBones[2].localRotation.x + " y: " + Hand.indexBones[2].localRotation.y + " Middle x: " + Hand.middleBones[2].localRotation.x + " y: " + Hand.middleBones[2].localRotation.y);
     }
 
     public void GrabGesture()
@@ -38,6 +42,8 @@ public class Gestures : MonoBehaviour
 
         else
         {
+            if (SphereCollider.TryGetComponent<Rigidbody>(out rb))
+                Destroy(rb);
             SphereCollider.SetActive(false);
             grab = false;
         }
@@ -47,67 +53,43 @@ public class Gestures : MonoBehaviour
         switch ((int)hardnesschar) //convert hardness value to byte for vibration
         {
             case 2:
-                hard = 2;
-                break;
+                hard = 2; break;
             case 3:
-                hard = 3;
-                break;
+                hard = 3; break;
             case 4:
-                hard = 4;
-                break;
+                hard = 4; break;
             case 5:
-                hard = 5;
-                break;
+                hard = 5; break;
             case 6:
-                hard = 6;
-                break;
+                hard = 6; break;
             case 7:
-                hard = 7;
-                break;
+                hard = 7; break;
             case 8:
-                hard = 8;
-                break;
+                hard = 8; break;
             case 9:
-                hard = 9;
-                break;
+                hard = 9; break;
             default:
-                hard = 2;
-                break;
-
+                hard = 2; break;
         }
     }
 
     public void PinchGesture()
     {
         if (SensoHandExample.thumbBones[2].localRotation.x >= 0.07 && SensoHandExample.indexBones[2].localRotation.x <= -0.4)
-        {
             pinch = true;
-        }
         
         else
-        {
             pinch = false;
-        }
     }
 
     public void VGesture()
     {
         if (SensoHandExample.thirdBones[2].localRotation.x <= -0.2 &&  SensoHandExample.littleBones[2].localRotation.x <= 0.2 && SensoHandExample.indexBones[2].localRotation.x >= -0.2 && SensoHandExample.middleBones[2].localRotation.x >= -0.2)
-        {
             Vgesture = true;
-        }
 
         else
-        {
             Vgesture = false;
-        }
     }
 
-    void Start()
-    {
-        SphereCollider.SetActive(false);
-        if(SensoHandExample == null)
-            SensoHandExample = this.gameObject.GetComponent<SensoHandExample>();
-        
-    }
+
 }
