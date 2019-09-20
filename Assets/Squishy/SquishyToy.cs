@@ -5,7 +5,7 @@ using UnityEngine;
     public class SquishyToy : MonoBehaviour
     {
         public GameObject InteractableObject;
-        public InteractableJoint interactable;
+        public Interactable interactable;
         public new SkinnedMeshRenderer renderer;
         public Gestures gesture;
         public bool affectMaterial = true;
@@ -18,7 +18,7 @@ using UnityEngine;
         private void Start()
         {
             InteractableObject = this.gameObject;
-            interactable = this.gameObject.GetComponent<InteractableJoint>();
+            interactable = this.gameObject.GetComponent<Interactable>();
 
             if (rigidbody == null)
                 rigidbody = GetComponent<Rigidbody>();
@@ -47,7 +47,12 @@ using UnityEngine;
                     {
                         renderer.material.SetFloat("_PinchDeform", Mathf.Pow(gesture.hard * 1f, 0.5f));
                     }
-                }                
+                }
+                        
+                    
+                
             }
+
         }
+
     }
