@@ -3,7 +3,6 @@ using UnityEngine;
 public class SensoHandExample : Senso.Hand {
 
     public Transform Palm;
-    public Transform Wrist;
 
     public Transform[] thumbBones;
     public Transform[] indexBones;
@@ -54,10 +53,8 @@ public class SensoHandExample : Senso.Hand {
 
     public override void SetSensoPose (Senso.HandData aData)
 	{
-        //Wrist.localRotation = aData.WristRotation;
         Palm.localRotation = /*(Quaternion.Inverse(wq) */ aData.PalmRotation;
         Palm.localPosition = aData.PalmPosition;
-        
 
 		//Fingers
         if (aData.AdvancedThumb)
