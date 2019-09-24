@@ -6,66 +6,71 @@ public class Interactable_Vibration : MonoBehaviour
 {
     public byte Hardness = 2;
     public ushort duration = 500;
-    public bool IsVibrate;
-    public bool VibrateOnlyOnGrab;
+    public bool VibrateOnce;
     public bool FixedVibration = true;
-    [HideInInspector]
-    public bool Vibrated;
-    [HideInInspector]
-    public GameObject InteractableObject;
-    [HideInInspector]
-    public Interactable Interactable;
-    [HideInInspector]
-    public Gestures Gesture;
-    [HideInInspector]
-    public GameObject[] Hands;
+
+    bool Vibrated;
+    GameObject InteractableObject;
+    InteractableJoint InteractableJoint;
 
     public void Start()
     {
-        byte[] Hardness = new byte[1];
         InteractableObject = this.gameObject;
-        Interactable = InteractableObject.GetComponent<Interactable>();
-
-        if (Gesture == null)
-        {
-            Hands = GameObject.FindGameObjectsWithTag("Hand Container");
-            for (int i = 0; i < 2; i++)
-            {
-                Gesture = Hands[i].GetComponent<Gestures>();
-            }
-        }
+        InteractableJoint = InteractableObject.GetComponent<InteractableJoint>();
     }
 
-    public void Vibrate(ushort duration, byte Hardness)
+    public void GrabVibrate(ushort duration, byte Hardness)
     {
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Thumb, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Index, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Third, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Middle, duration, Hardness);
-        Interactable.SensoHandExample.VibrateFinger(Senso.EFingerType.Little, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Thumb, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Index, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Third, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Middle, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Little, duration, Hardness);
+    }
+
+    public void PinchVibrate(ushort duration, byte Hardness)
+    {
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Thumb, duration, Hardness);
+        InteractableJoint.SensoHandExample.VibrateFinger(Senso.EFingerType.Index, duration, Hardness);
     }
 
     void Update()
     {
-        if (FixedVibration == false)
-            Hardness = Gesture.hard;
-
-        if (Interactable.Grabbed && VibrateOnlyOnGrab && IsVibrate && Vibrated == false)
+        if (InteractableJoint.gesture != null)
         {
-            Vibrate(duration, Hardness);
-            Vibrated = true;
-        }
+            if (InteractableJoint.Grab)
+            {
+                if (FixedVibration == false)
+                    Hardness = InteractableJoint.gesture.hard;
 
-        else if (Interactable.Grabbed && IsVibrate && VibrateOnlyOnGrab == false)
-        {
-            Vibrate(duration, Hardness);
-        }
+                if (InteractableJoint.Grabbed && VibrateOnce && !Vibrated)
+                {
+                    GrabVibrate(duration, Hardness);
+                    Vibrated = true;
+                }
 
-        else if(Interactable.Grabbed == false)
-        {
-            Vibrated = false;
+                else if (InteractableJoint.Grabbed && !VibrateOnce)
+                    GrabVibrate(duration, Hardness);
+
+                else if (!InteractableJoint.Grabbed)
+                    Vibrated = false;
+            }
+
+            else if (InteractableJoint.Pinch)
+            {
+                if (InteractableJoint.Pinched && VibrateOnce && !Vibrated)
+                {
+                    PinchVibrate(duration, Hardness);
+                    Vibrated = true;
+                }
+
+                else if (InteractableJoint.Pinched && !VibrateOnce)
+                    PinchVibrate(duration, Hardness);
+
+                else if (!InteractableJoint.Pinched)
+                    Vibrated = false;
+            }
         }
-             
     }
 
 }
